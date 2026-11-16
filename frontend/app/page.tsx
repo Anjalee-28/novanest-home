@@ -29,7 +29,7 @@ export default function NovaNestStore() {
   const [chatInput, setChatInput] = useState("");
   const [aiTyping, setAiTyping] = useState(false);
 
-  const API_URL = "https://novanest-home.vercel.app/";
+  const API_URL = "https://novanest-home.vercel.app";
 
   useEffect(() => {
     fetchProducts();
