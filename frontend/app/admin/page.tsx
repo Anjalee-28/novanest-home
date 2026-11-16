@@ -20,7 +20,7 @@ export default function AdminDashboard() {
         image_url: ""
     });
 
-    const API_URL = "/api";
+    const API_URL = "https://novanest-home.vercel.app/";
 
     useEffect(() => {
         if (authenticated) {
