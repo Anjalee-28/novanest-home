@@ -20,7 +20,7 @@ export default function AdminDashboard() {
         image_url: ""
     });
 
-    const API_URL = "http://127.0.0.1:8000";
+    const API_URL = "/api";
 
     useEffect(() => {
         if (authenticated) {
