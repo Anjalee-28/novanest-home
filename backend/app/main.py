@@ -15,12 +15,12 @@ def seed_initial_products():
     db = next(get_db())
     if db.query(models.Product).count() == 0:
         sample_products = [
-            models.Product(name="Minimalist Ceramic Vase", description="Handcrafted matte white ceramic vase perfect for dried pampas grass.", category="Vases", price=45.0, stock=15, image_url="https://pexels.com"),
-            models.Product(name="Woven Boho Throw Pillow", description="Soft organic cotton and linen textured cushion cover with insert.", category="Cushions", price=32.0, stock=20, image_url="https://pexels.com"),
-            models.Product(name="Nordic Warm Table Lamp", description="Modern wooden base bedside lamp with warm ambient shade.", category="Lighting", price=78.5, stock=8, image_url="https://pexels.com"),
-            models.Product(name="Botanical Framed Wall Art", description="Minimalist neutral-toned botanical print in solid oak frame.", category="Wall Art", price=64.0, stock=10, image_url="https://pexels.com"),
-            models.Product(name="Soy Wax Scented Candle Set", description="Hand-poured natural soy candles with sandalwood and vanilla.", category="Home Fragrance", price=28.0, stock=25, image_url="https://pexels.com"),
-            models.Product(name="Rattan Woven Storage Basket", description="Eco-friendly handwoven seagrass basket for living room.", category="Storage", price=52.0, stock=0, image_url="https://pexels.com"),
+            models.Product(name="Minimalist Ceramic Vase", description="Handcrafted matte white ceramic vase perfect for dried pampas grass.", category="Vases", price=45.0, stock=15, image_url="/vase.jpeg"),
+            models.Product(name="Woven Boho Throw Pillow", description="Soft organic cotton and linen textured cushion cover with insert.", category="Cushions", price=32.0, stock=20, image_url="/pillow.jpeg"),
+            models.Product(name="Nordic Warm Table Lamp", description="Modern wooden base bedside lamp with warm ambient shade.", category="Lighting", price=78.5, stock=8, image_url="/lamp.jpeg"),
+            models.Product(name="Botanical Framed Wall Art", description="Minimalist neutral-toned botanical print in solid oak frame.", category="Wall Art", price=64.0, stock=10, image_url="/wallart.jpeg"),
+            models.Product(name="Soy Wax Scented Candle Set", description="Hand-poured natural soy candles with sandalwood and vanilla.", category="Home Fragrance", price=28.0, stock=25, image_url="/candle.jpeg"),
+            models.Product(name="Rattan Woven Storage Basket", description="Eco-friendly handwoven seagrass basket for living room.", category="Storage", price=52.0, stock=0, image_url="/basket.jpeg"),
         ]
         db.add_all(sample_products)
         db.commit()
