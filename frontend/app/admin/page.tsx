@@ -29,14 +29,27 @@ export default function AdminDashboard() {
     }, [authenticated]);
 
     const fetchAllData = async () => {
-        const [pRes, oRes, iRes] = await Promise.all([
-            fetch(`${API_URL}/products/`),
-            fetch(`${API_URL}/orders/`),
-            fetch(`${API_URL}/inquiries/`)
-        ]);
-        setProducts(await pRes.json());
-        setOrders(await oRes.json());
-        setInquiries(await iRes.json());
+        try {
+            const [pRes, oRes, iRes] = await Promise.all([
+                fetch(`${API_URL}/products/`),
+                fetch(`${API_URL}/orders/`),
+                fetch(`${API_URL}/inquiries/`)
+            ]);
+            if (pRes.ok) {
+                const pData = await pRes.json();
+                if (Array.isArray(pData)) setProducts(pData);
+            }
+            if (oRes.ok) {
+                const oData = await oRes.json();
+                if (Array.isArray(oData)) setOrders(oData);
+            }
+            if (iRes.ok) {
+                const iData = await iRes.json();
+                if (Array.isArray(iData)) setInquiries(iData);
+            }
+        } catch (error) {
+            console.error("Error fetching admin data:", error);
+        }
     };
 
     const handleLogin = (e: React.FormEvent) => {

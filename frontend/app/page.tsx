@@ -38,8 +38,11 @@ export default function NovaNestStore() {
   const fetchProducts = async () => {
     try {
       const res = await fetch(`${API_URL}/products/`);
+      if (!res.ok) return;
       const data = await res.json();
-      setProducts(data);
+      if (Array.isArray(data)) {
+        setProducts(data);
+      }
     } catch (error) {
       console.error("Failed to fetch products:", error);
     }
